@@ -1,6 +1,6 @@
 import { AppRegistry } from 'react-native';
 import App from './App';
-import LotsOfStyles from './LotsOfStyles';
+import LotsOfStyles from './js/LotsOfStyles';
 import FlexDirectionBasics from './js/FlexDirectionBasics';
 import TextInputTest from './js/TextInputTest';
 import FlatListTest from './js/FlatListTest';
