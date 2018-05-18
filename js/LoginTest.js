@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+
+import axios from 'axios'
+
 import {
     Platform,
     StyleSheet,
@@ -17,19 +20,33 @@ export default class LoginTest extends Component {
 
     render() {
 
-        function f() {
 
-            async function getUser() {
-                try {
-                    const response = await axios.get('/user?ID=12345');
-                    ToastAndroid.show('This is a toast with short duration loginAction'+response, ToastAndroid.SHORT)
-                    console.log(response);
-                } catch (error) {
-                    console.error(error);
-                }
-            }
+        function getUser() {
+            axios.post('http://118.178.224.151:9093/user/anno/loginBasic', {
+                telephone: '13634133426',
+                password: '21212121221',
+                deviceToken: '21212121221',
+
+            }).then(function (response) {
+
+
+                var responseData=response.data;
+
+                var x=JSON.parse(responseData);
+
+
+
+                console.warn(response.data.code);
+
+                ToastAndroid.show('This is a toast with short duration loginAction' + response.data, ToastAndroid.SHORT)
+
+            }).catch(function (error) {
+                console.log(error);
+            });
 
         }
+
+
         function loginAction() {
             ToastAndroid.show('This is a toast with short duration loginAction', ToastAndroid.SHORT)
 
@@ -43,7 +60,7 @@ export default class LoginTest extends Component {
                     firstParam: 'yourValue',
                     secondParam: 'yourOtherValue',
                 }),
-            }).then((reponse)=>{
+            }).then((reponse) => {
                 reponse.json()
                 console.log(reponse.json())
                 // ToastAndroid.show(reponse.json(), ToastAndroid.SHORT)
@@ -58,7 +75,7 @@ export default class LoginTest extends Component {
                 */
 
             <View style={{
-                 flexDirection: 'column', justifyContent: 'space-between'
+                flexDirection: 'column', justifyContent: 'space-between'
                 , alignItems: 'stretch',
             }}>
                 <TextInput
@@ -75,7 +92,7 @@ export default class LoginTest extends Component {
                 >
 
                 </TextInput>
-                <Button onPress={() => loginAction()} title={"登录系统"}></Button>
+                <Button onPress={() => getUser()} title={"登录系统"}></Button>
                 <View style={{height: 50, backgroundColor: 'powderblue'}}/>
                 <View style={{height: 50, backgroundColor: 'skyblue'}}/>
                 <View style={{height: 50, backgroundColor: 'steelblue'}}/>
