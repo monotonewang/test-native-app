@@ -46,6 +46,7 @@ export default class SplashTest extends Component {
                     title='open textViewtest'> </Button>
                 <Button  style={{marginTop:20}} onPress={()=>navigate('page2',{user:'lucy',name:121})} title={"open flat page"}> </Button>
                 <Button  style={{marginTop:20}} onPress={()=>navigate('LoginTest',{user:'lucy',name:121})} title={"login"}> </Button>
+                <Button style={{marginTop:20}} onPress={()=>navigate('ComponentProps')} title={"ComponentProps"}> </Button>
             </View>
         );
     }

@@ -20,7 +20,6 @@ export default class LoginTest extends Component {
 
     render() {
 
-
         function getUser() {
             axios.post('http://118.178.224.151:9093/user/anno/loginBasic', {
                 telephone: '13634133426',
@@ -30,10 +29,9 @@ export default class LoginTest extends Component {
             }).then(function (response) {
 
 
-                var responseData=response.data;
+                var responseData = response.data;
 
-                var x=JSON.parse(responseData);
-
+                var x = JSON.parse(responseData);
 
 
                 console.warn(response.data.code);
@@ -42,6 +40,8 @@ export default class LoginTest extends Component {
 
             }).catch(function (error) {
                 console.log(error);
+
+                ToastAndroid.show('This is a toast with short duration error' + response.data, ToastAndroid.SHORT)
             });
 
         }
