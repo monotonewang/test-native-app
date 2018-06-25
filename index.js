@@ -6,6 +6,7 @@ import TextInputTest from './js/TextInputTest';
 import FlatListTest from './js/FlatListTest';
 import SplashTest from './js/SplashTest';
 import LoginTest from './js/LoginTest';
+import TestState from './js/TestState';
 import ComponentProps from './js/ComponentProps';
 import { YellowBox } from 'react-native';
 
@@ -30,6 +31,7 @@ const simpleAppNavigator= createStackNavigator({
     ComponentProps:{screen:ComponentProps},
     page2:{screen:FlatListTest},
     LoginTest:{screen:LoginTest},
+    TestState:{screen:TestState},
 })
 // AppRegistry.registerComponent('test_native_app', () => App);
 // AppRegistry.registerComponent('test_native_app', () => FlexDirectionBasics);

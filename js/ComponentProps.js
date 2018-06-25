@@ -16,6 +16,9 @@ export default class ComponentProps extends Component {
                 <GoodMorning></GoodMorning>
                 <GoodMorning name={"marry"}></GoodMorning>
                 <GoodEvening name={"bob"}></GoodEvening>
+                {
+                    names.map(name => <GoodAfternoon name={name}/>)
+                }
             </View>
         );
     }
@@ -24,7 +27,22 @@ export default class ComponentProps extends Component {
 // http://www.css88.com/react/docs/typechecking-with-proptypes.html
 import PropTypes from 'prop-types'
 
+
+//全局变量使用
+global.c = 11
+const b = [1, 2, 3]
+
+const names = ['tom', 'jerry', 'nick'];
+
 class GoodMorning extends Component {
+
+    tempString = "cc";
+
+    constructor(props) {
+        super(props);
+        this.tempIndex = 1;
+        //两个一致
+    }
 
     //默认值
     static defaultProps = {
@@ -38,8 +56,16 @@ class GoodMorning extends Component {
 
     render() {
         return (
-            <Text>Good Morning,{this.props.name}</Text>
+            <Text>Good Morning,{this.props.name}+{global.c}</Text>
         )
+    }
+}
+
+class GoodAfternoon extends Component {
+    render() {
+        return <View>
+            <Text>GoodAfternoon,{this.props.name}</Text>
+        </View>
     }
 }
 
