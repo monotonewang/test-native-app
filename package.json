@@ -20,5 +20,6 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "proxy": "http://118.178.224.151:9093"
 }

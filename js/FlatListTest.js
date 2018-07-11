@@ -5,11 +5,38 @@ import {
     StyleSheet,
     Text,
     View,
-    Image
+    Image, ToastAndroid
 } from 'react-native';
 
 
 export default class FlatListTest extends Component {
+
+    // componentDidMount(){
+    //     fetch('https://api.douban.com/v2/movie/in_thraters', {
+    //         // method: 'POST',
+    //         headers: {
+    //             // Accept: 'application/json',
+    //             // 'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({
+    //             // telephone: '13634133426',
+    //             // password: '12345678',
+    //             // deviceToken: '21212121221',
+    //         }),
+    //     }).then((reponse) => {
+    //         reponse.json()
+    //         console.log(reponse.json())
+    //
+    //         reponse.toString();
+    //
+    //         reponse.
+    //
+    //         ToastAndroid.show('This is a toast with short duration loginAction' + reponse.toString(), ToastAndroid.SHORT)
+    //         // ToastAndroid.show(reponse.json(), ToastAndroid.SHORT)
+    //     }).catch((error)=>{
+    //         ToastAndroid.show('This is a toast with short duration error' + error.response, ToastAndroid.SHORT)
+    //     });
+    // }
 
     static navigationOptions = {
         title: 'ChatScreen',
@@ -18,7 +45,7 @@ export default class FlatListTest extends Component {
 
     onPressButton() {
 
-        navigate('Chat')
+        // navigate('Chat')
         console.log("xxxxxxxxxxxxxxxxxxxx")
     }
 
@@ -78,6 +105,8 @@ export default class FlatListTest extends Component {
 
 const styles = StyleSheet.create({
     container: {
+        justifyContent:'space-between',
+        paddingHorizontal:7,
         backgroundColor: 'red',
         flex: 1,
         paddingTop: 22

@@ -13,6 +13,11 @@ import {
 } from 'react-native';
 
 export default class LoginTest extends Component {
+
+    state = {
+        movies: "",
+    }
+
     constructor(props) {
         super(props);
         this.state = {telephone: '', password: ''}
@@ -21,6 +26,8 @@ export default class LoginTest extends Component {
     render() {
 
         function getUser() {
+
+
             axios.post('http://118.178.224.151:9093/user/anno/loginBasic', {
                 telephone: '13634133426',
                 password: '21212121221',
@@ -41,14 +48,41 @@ export default class LoginTest extends Component {
             }).catch(function (error) {
                 console.log(error);
 
-                ToastAndroid.show('This is a toast with short duration error' + response.data, ToastAndroid.SHORT)
+
+                ToastAndroid.show('This is a toast with short duration error' + error.response, ToastAndroid.SHORT)
             });
 
         }
 
 
-        function loginAction() {
-            ToastAndroid.show('This is a toast with short duration loginAction', ToastAndroid.SHORT)
+        async function getMoviesFromApi() {
+            try {
+                let response = await fetch(
+                    'https://facebook.github.io/react-native/movies.json'
+                );
+                let responseJson = await response.json();
+
+                this.setState({
+                    movies: responseJson.movies,
+                });
+
+                // var string=JSON.parse(response.text());
+
+                // ToastAndroid.show('This is a toast with short duration loginActionxx='+responseJson.movies, ToastAndroid.SHORT)
+                // ToastAndroid.show('This is a toast with short duration loginActionxx='+string.toString(), ToastAndroid.SHORT)
+                return responseJson.movies;
+            } catch (error) {
+                console.error(error);
+
+                ToastAndroid.show('This is a toast with short duration error=', ToastAndroid.SHORT)
+            }
+        }
+
+
+        function getUserFetch() {
+
+
+            ToastAndroid.show('This is a toast with getUserFetch', ToastAndroid.SHORT)
 
             return fetch('http://118.178.224.151:9093/user/anno/loginBasic', {
                 method: 'POST',
@@ -57,13 +91,23 @@ export default class LoginTest extends Component {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    firstParam: 'yourValue',
-                    secondParam: 'yourOtherValue',
+                    telephone: '13634133426',
+                    password: '12345678',
+                    deviceToken: '21212121221',
                 }),
-            }).then((reponse) => {
-                reponse.json()
-                console.log(reponse.json())
+            }).then((response) => {
+                response.json()
+
+                // var string= JSON.parse(response.text)
+                console.log(response.json())
+
+                response.toString();
+
+
+                ToastAndroid.show('This is a toast with short duration loginAction' + string + "xx=" + response.json(), ToastAndroid.SHORT)
                 // ToastAndroid.show(reponse.json(), ToastAndroid.SHORT)
+            }).catch((error) => {
+                ToastAndroid.show('This is a toast with short duration error' + error.response, ToastAndroid.SHORT)
             });
         }
 
@@ -92,7 +136,7 @@ export default class LoginTest extends Component {
                 >
 
                 </TextInput>
-                <Button onPress={() => getUser()} title={"登录系统"}></Button>
+                <Button onPress={() => getMoviesFromApi()} title={"登录系统"}></Button>
                 <View style={{height: 50, backgroundColor: 'powderblue'}}/>
                 <View style={{height: 50, backgroundColor: 'skyblue'}}/>
                 <View style={{height: 50, backgroundColor: 'steelblue'}}/>
