@@ -11,6 +11,7 @@ import {
 //     StyleSheet,
 
 import { StackNavigator } from 'react-navigation';
+import FlatListTest from "./FlatListTest";
 
 export default class SplashTest extends Component {
     static navigationOptions = {
@@ -48,6 +49,8 @@ export default class SplashTest extends Component {
                 <Button  style={{marginTop:20}} onPress={()=>navigate('LoginTest',{user:'lucy',name:121})} title={"login"}> </Button>
                 <Button style={{padding:20}} onPress={()=>navigate('ComponentProps')} title={"ComponentProps"}> </Button>
                 <Button style={{padding:20}} onPress={()=>navigate('TestState')} title={"TestState"}> </Button>
+                <Button style={{padding:20}} onPress={()=>navigate('TextView')} title={"TextView"}> </Button>
+                <Button style={{padding:20}} onPress={()=>navigate('FlatListTest')} title={"FlatListTest"}> </Button>
             </View>
         );
     }

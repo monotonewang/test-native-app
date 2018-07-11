@@ -17,6 +17,7 @@ export default class TextView extends Component {
                 <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
                 <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
                 <View style={{width: 150, height: 150, backgroundColor: 'red'}}/>
+                <View style={styles.root}/>
             </View>
         );
     }
@@ -31,6 +32,14 @@ const styles = StyleSheet.create({
     red: {
         color: 'red',
     },
+    root:{
+        marginTop:20,
+        width:150,
+        height:150,
+        borderColor:'black',
+        backgroundColor:'red',
+        borderWidth:2,
+    }
 });
 
 // AppRegistry.registerComponent('LotsOfStyles', () => LotsOfStyles);

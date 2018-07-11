@@ -13,6 +13,7 @@ import { YellowBox } from 'react-native';
 import  { createStackNavigator }  from 'react-navigation';
 
 import { StackNavigator } from 'react-navigation';
+import TextView from "./js/TextView";
 
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
@@ -32,6 +33,8 @@ const simpleAppNavigator= createStackNavigator({
     page2:{screen:FlatListTest},
     LoginTest:{screen:LoginTest},
     TestState:{screen:TestState},
+    TextView:{screen:TextView},
+    FlatListTest:{screen:FlatListTest},
 })
 // AppRegistry.registerComponent('test_native_app', () => App);
 // AppRegistry.registerComponent('test_native_app', () => FlexDirectionBasics);
